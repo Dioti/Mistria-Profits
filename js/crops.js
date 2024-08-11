@@ -1,1190 +1,794 @@
-/*
- * All data gathered from a modified version of polarstoat/stardew-crop-data
- */
-
-// Crop List
 var crops = {
-  "carrot": {
-    "name": "Carrot",
-    "url": "https://stardewvalleywiki.com/Carrot",
-    "img": "carrot.png",
-    "seeds": {
-      "sell": 15,
-      "pierre": 0,
-      "joja": 0,
-      "special": 0,
-      "specialLoc": "Unpurchasable",
-      "specialUrl": "https://stardewvalleywiki.com/Carrot_Seeds"
+  "cauliflower" : {
+    "name" : "Cauliflower",
+    "url" : "https://fieldsofmistria.wiki.gg/wiki/Cauliflower",
+    "img" : "cauliflower.png",
+    "seeds" : {
+      "sell" : 20,
+      "generalStore" : 40,
+      "special" : 0,
+      "specialLoc" : "",
+      "specialUrl" : ""
     },
-    "growth": {
-      "initial": 3,
-      "regrow": 0
+    "growth" : {
+      "initial" : 6,
+      "regrow" : 0
     },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      "price": 35,
-      "jarType": "Pickles",
-      "kegType": "Juice"
-    }
+    "produce" : {
+      "extra" : 0,
+      "extraPerc" : 0,
+      "price" : 75
+    },
+    "season" : "winter",
+    "generalStoreUpgradeRequired" : false,
+    "spriteName" : "spr_ui_item_cauliflower"
   },
-  "summersquash": {
-    "name": "Summer Squash",
-    "url": "https://stardewvalleywiki.com/Summer_Squash",
-    "img": "summersquash.png",
-    "seeds": {
-      "sell": 20,
-      "pierre": 0,
-      "joja": 0,
-      "special": 0,
-      "specialLoc": "Unpurchasable",
-      "specialUrl": "https://stardewvalleywiki.com/Summer_Squash_Seeds"
+  "daikon_radish" : {
+    "name" : "Daikon Radish",
+    "url" : "https://fieldsofmistria.wiki.gg/wiki/Daikon_Radish",
+    "img" : "daikon_radish.png",
+    "seeds" : {
+      "sell" : 35,
+      "generalStore" : 70,
+      "special" : 0,
+      "specialLoc" : "",
+      "specialUrl" : ""
     },
-    "growth": {
-      "initial": 6,
-      "regrow": 3
+    "growth" : {
+      "initial" : 9,
+      "regrow" : 0
     },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      "price": 45,
-      "jarType": "Pickles",
-      "kegType": "Juice"
-    }
+    "produce" : {
+      "extra" : 0,
+      "extraPerc" : 0,
+      "price" : 180
+    },
+    "season" : "winter",
+    "generalStoreUpgradeRequired" : false,
+    "spriteName" : "spr_ui_item_daikon_radish"
   },
-  "broccoli": {
-    "name": "Broccoli",
-    "url": "https://stardewvalleywiki.com/Broccoli",
-    "img": "broccoli.png",
-    "seeds": {
-      "sell": 40,
-      "pierre": 0,
-      "joja": 0,
-      "special": 0,
-      "specialLoc": "Unpurchasable",
-      "specialUrl": "https://stardewvalleywiki.com/Broccoli_Seeds"
+  "cabbage" : {
+    "name" : "Cabbage",
+    "url" : "https://fieldsofmistria.wiki.gg/wiki/Cabbage",
+    "img" : "cabbage.png",
+    "seeds" : {
+      "sell" : 35,
+      "generalStore" : 70,
+      "special" : 0,
+      "specialLoc" : "",
+      "specialUrl" : ""
     },
-    "growth": {
-      "initial": 8,
-      "regrow": 4
+    "growth" : {
+      "initial" : 9,
+      "regrow" : 0
     },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      "price": 70,
-      "jarType": "Pickles",
-      "kegType": "Juice"
-    }
+    "produce" : {
+      "extra" : 0,
+      "extraPerc" : 0,
+      "price" : 180
+    },
+    "season" : "spring",
+    "generalStoreUpgradeRequired" : false,
+    "spriteName" : "spr_ui_item_cabbage"
   },
-  "powdermelon": {
-    "name": "Powdermelon",
-    "url": "https://stardewvalleywiki.com/Powdermelon",
-    "img": "powdermelon.png",
-    "seeds": {
-      "sell": 20,
-      "pierre": 0,
-      "joja": 0,
-      "special": 0,
-      "specialLoc": "Unpurchasable",
-      "specialUrl": "https://stardewvalleywiki.com/Powdermelon_Seeds"
+  "cucumber" : {
+    "name" : "Cucumber",
+    "url" : "https://fieldsofmistria.wiki.gg/wiki/Cucumber",
+    "img" : "cucumber.png",
+    "seeds" : {
+      "sell" : 12,
+      "generalStore" : 25,
+      "special" : 0,
+      "specialLoc" : "",
+      "specialUrl" : ""
     },
-    "growth": {
-      "initial": 7,
-      "regrow": 0
+    "growth" : {
+      "initial" : 4,
+      "regrow" : 0
     },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      "price": 70,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
-    }
+    "produce" : {
+      "extra" : 0,
+      "extraPerc" : 0,
+      "price" : 40
+    },
+    "season" : "summer",
+    "generalStoreUpgradeRequired" : false,
+    "spriteName" : "spr_ui_item_cucumber"
   },
-  "amaranth": {
-    "name": "Amaranth",
-    "url": "http://stardewvalleywiki.com/Amaranth",
-    "img": "amaranth.png",
-    "seeds": {
-      "sell": 35,
-      "pierre": 70,
-      "joja": 87,
-      "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
+  "corn" : {
+    "name" : "Corn",
+    "url" : "https://fieldsofmistria.wiki.gg/wiki/Corn",
+    "img" : "corn.png",
+    "seeds" : {
+      "sell" : 150,
+      "generalStore" : 300,
+      "special" : 0,
+      "specialLoc" : "",
+      "specialUrl" : ""
     },
-    "growth": {
-      "initial": 7,
-      "regrow": 0
+    "growth" : {
+      "initial" : 5,
+      "regrow" : 3
     },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      "price": 150,
-      "jarType": "Pickles",
-      "kegType": "Juice"
-    }
+    "produce" : {
+      "extra" : 0,
+      "extraPerc" : 0,
+      "price" : 125
+    },
+    "season" : "summer",
+    "generalStoreUpgradeRequired" : false,
+    "spriteName" : "spr_ui_item_corn"
   },
-  "grape": {
-    "name": "Grape",
-    "url": "http://stardewvalleywiki.com/Grape",
-    "img": "grape.png",
-    "seeds": {
-      "sell": 30,
-      "pierre": 60,
-      "joja": 75,
-      "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
+  "onion" : {
+    "name" : "Onion",
+    "url" : "https://fieldsofmistria.wiki.gg/wiki/Onion",
+    "img" : "onion.png",
+    "seeds" : {
+      "sell" : 150,
+      "generalStore" : 300,
+      "special" : 0,
+      "specialLoc" : "",
+      "specialUrl" : ""
     },
-    "growth": {
-      "initial": 10,
-      "regrow": 3
+    "growth" : {
+      "initial" : 5,
+      "regrow" : 3
     },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      "price": 80,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Raisins"
-    }
+    "produce" : {
+      "extra" : 0,
+      "extraPerc" : 0,
+      "price" : 135
+    },
+    "season" : "fall",
+    "generalStoreUpgradeRequired" : true,
+    "spriteName" : "spr_ui_item_onion"
   },
-  "hops": {
-    "name": "Hops",
-    "url": "http://stardewvalleywiki.com/Hops",
-    "img": "hops.png",
-    "seeds": {
-      "sell": 30,
-      "pierre": 60,
-      "joja": 75,
-      "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
+  "chili_pepper" : {
+    "name" : "Chili Pepper",
+    "url" : "https://fieldsofmistria.wiki.gg/wiki/Chili_Pepper",
+    "img" : "chili_pepper.png",
+    "seeds" : {
+      "sell" : 20,
+      "generalStore" : 40,
+      "special" : 0,
+      "specialLoc" : "",
+      "specialUrl" : ""
     },
-    "growth": {
-      "initial": 11,
-      "regrow": 1
+    "growth" : {
+      "initial" : 6,
+      "regrow" : 0
     },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      "price": 25,
-      "keg": 300,
-      "jarType": "Pickles",
-      "kegType": "Pale Ale"
-    }
+    "produce" : {
+      "extra" : 0,
+      "extraPerc" : 0,
+      "price" : 75
+    },
+    "season" : "summer",
+    "generalStoreUpgradeRequired" : false,
+    "spriteName" : "spr_ui_item_chili_pepper"
   },
-  "pineapple": {
-    "name": "Pineapple",
-    "url": "http://stardewvalleywiki.com/Pineapple",
-    "img": "pineapple.png",
-    "seeds": {
-      "sell": 240,
-      "pierre": 0,
-      "joja": 0,
-      "special": 400,
-      "specialLoc": "Island Trader",
-      "specialUrl": "http://stardewvalleywiki.com/Island_Trader"
+  "broccoli" : {
+    "name" : "Broccoli",
+    "url" : "https://fieldsofmistria.wiki.gg/wiki/Broccoli",
+    "img" : "broccoli.png",
+    "seeds" : {
+      "sell" : 20,
+      "generalStore" : 40,
+      "special" : 0,
+      "specialLoc" : "",
+      "specialUrl" : ""
     },
-    "growth": {
-      "initial": 14,
-      "regrow": 7
+    "growth" : {
+      "initial" : 6,
+      "regrow" : 0
     },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      "price": 300,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
-    }
+    "produce" : {
+      "extra" : 0,
+      "extraPerc" : 0,
+      "price" : 75
+    },
+    "season" : "fall",
+    "generalStoreUpgradeRequired" : false,
+    "spriteName" : "spr_ui_item_broccoli"
   },
-  "sweetgemberry": {
-    "name": "Sweet Gem Berry",
-    "url": "http://stardewvalleywiki.com/Sweet_Gem_Berry",
-    "img": "sweetgemberry.png",
-    "seeds": {
-      "sell": 200,
-      "pierre": 0,
-      "joja": 0,
-      "special": 1000,
-      "specialLoc": "Travelling Cart",
-      "specialUrl": "http://stardewvalleywiki.com/Travelling_Cart"
+  "tomato" : {
+    "name" : "Tomato",
+    "url" : "https://fieldsofmistria.wiki.gg/wiki/Tomato",
+    "img" : "tomato.png",
+    "seeds" : {
+      "sell" : 150,
+      "generalStore" : 300,
+      "special" : 0,
+      "specialLoc" : "",
+      "specialUrl" : ""
     },
-    "growth": {
-      "initial": 24,
-      "regrow": 0
+    "growth" : {
+      "initial" : 5,
+      "regrow" : 3
     },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      "price": 3000
-    }
+    "produce" : {
+      "extra" : 0,
+      "extraPerc" : 0,
+      "price" : 125
+    },
+    "season" : "summer",
+    "generalStoreUpgradeRequired" : false,
+    "spriteName" : "spr_ui_item_tomato"
   },
-  "tealeaves": {
-    "name": "Tea Leaves",
-    "url": "http://stardewvalleywiki.com/Tea_Leaves",
-    "img": "tealeaves.png",
-    "seeds": {
-      "sell": 0,
-      "pierre": 0,
-      "joja": 0,
-      "special": 2500,
-      "specialLoc": "Travelling Cart",
-      "specialUrl": "http://stardewvalleywiki.com/Travelling_Cart"
+  "frost_lily" : {
+    "name" : "Frost Lily",
+    "url" : "https://fieldsofmistria.wiki.gg/wiki/Frost_Lily",
+    "img" : "frost_lily.png",
+    "seeds" : {
+      "sell" : 7,
+      "generalStore" : 15,
+      "special" : 0,
+      "specialLoc" : "",
+      "specialUrl" : ""
     },
-    "growth": {
-      "initial": 20,
-      "regrow": 1
+    "growth" : {
+      "initial" : 4,
+      "regrow" : 0
     },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      "price": 50,
-      "keg": 100,
-      "jarType": "Pickles",
-      "kegType": "Tea"
-    }
+    "produce" : {
+      "extra" : 0,
+      "extraPerc" : 0,
+      "price" : 25
+    },
+    "season" : "winter",
+    "generalStoreUpgradeRequired" : false,
+    "spriteName" : "spr_ui_item_frost_lily"
   },
-  "fairyrose": {
-    "name": "Fairy Rose",
-    "url": "http://stardewvalleywiki.com/Fairy_Rose",
-    "img": "fairyrose.png",
-    "seeds": {
-      "sell": 100,
-      "pierre": 200,
-      "joja": 250,
-      "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
+  "celosia" : {
+    "name" : "Celosia",
+    "url" : "https://fieldsofmistria.wiki.gg/wiki/Celosia",
+    "img" : "celosia.png",
+    "seeds" : {
+      "sell" : 7,
+      "generalStore" : 15,
+      "special" : 0,
+      "specialLoc" : "",
+      "specialUrl" : ""
     },
-    "growth": {
-      "initial": 12,
-      "regrow": 0
+    "growth" : {
+      "initial" : 4,
+      "regrow" : 0
     },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      "price": 290
-    }
+    "produce" : {
+      "extra" : 0,
+      "extraPerc" : 0,
+      "price" : 25
+    },
+    "season" : "fall",
+    "generalStoreUpgradeRequired" : false,
+    "spriteName" : "spr_ui_item_celosia"
   },
-  "tulip": {
-    "name": "Tulip",
-    "url": "http://stardewvalleywiki.com/Tulip",
-    "img": "tulip.png",
-    "seeds": {
-      "sell": 10,
-      "pierre": 20,
-      "joja": 25,
-      "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
+  "tea" : {
+    "name" : "Tea",
+    "url" : "https://fieldsofmistria.wiki.gg/wiki/Tea",
+    "img" : "tea.png",
+    "seeds" : {
+      "sell" : 150,
+      "generalStore" : 300,
+      "special" : 0,
+      "specialLoc" : "",
+      "specialUrl" : ""
     },
-    "growth": {
-      "initial": 6,
-      "regrow": 0
+    "growth" : {
+      "initial" : 5,
+      "regrow" : 3
     },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      "price": 30
-    }
+    "produce" : {
+      "extra" : 0,
+      "extraPerc" : 0,
+      "price" : 135
+    },
+    "season" : "summer",
+    "generalStoreUpgradeRequired" : true,
+    "spriteName" : "spr_ui_item_tea"
   },
-  "bluejazz": {
-    "name": "Blue Jazz",
-    "url": "http://stardewvalleywiki.com/Blue_Jazz",
-    "img": "bluejazz.png",
-    "seeds": {
-      "sell": 15,
-      "pierre": 30,
-      "joja": 37,
-      "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
+  "peas" : {
+    "name" : "Peas",
+    "url" : "https://fieldsofmistria.wiki.gg/wiki/Peas",
+    "img" : "peas.png",
+    "seeds" : {
+      "sell" : 150,
+      "generalStore" : 300,
+      "special" : 0,
+      "specialLoc" : "",
+      "specialUrl" : ""
     },
-    "growth": {
-      "initial": 7,
-      "regrow": 0
+    "growth" : {
+      "initial" : 5,
+      "regrow" : 3
     },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      "price": 50
-    }
+    "produce" : {
+      "extra" : 0,
+      "extraPerc" : 0,
+      "price" : 135
+    },
+    "season" : "spring",
+    "generalStoreUpgradeRequired" : true,
+    "spriteName" : "spr_ui_item_peas"
   },
-  "sunflower": {
-    "name": "Sunflower",
-    "url": "http://stardewvalleywiki.com/Sunflower",
-    "img": "sunflower.png",
-    "seeds": {
-      "sell": 20,
-      "pierre": 200,
-      "joja": 125,
-      "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
+  "chrysanthemum" : {
+    "name" : "Chrysanthemum",
+    "url" : "https://fieldsofmistria.wiki.gg/wiki/Chrysanthemum",
+    "img" : "chrysanthemum.png",
+    "seeds" : {
+      "sell" : 10,
+      "generalStore" : 20,
+      "special" : 0,
+      "specialLoc" : "",
+      "specialUrl" : ""
     },
-    "growth": {
-      "initial": 8,
-      "regrow": 0
+    "growth" : {
+      "initial" : 6,
+      "regrow" : 0
     },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      "price": 80
-    }
+    "produce" : {
+      "extra" : 0,
+      "extraPerc" : 0,
+      "price" : 30
+    },
+    "season" : "fall",
+    "generalStoreUpgradeRequired" : false,
+    "spriteName" : "spr_ui_item_chrysanthemum"
   },
-  "coffeebean": {
-    "name": "Coffee Bean",
-    "url": "http://stardewvalleywiki.com/Coffee_Bean",
-    "img": "coffeebean.png",
-    "seeds": {
-      "sell": 0,
-      "pierre": 0,
-      "joja": 0,
-      "special": 2500,
-      "specialLoc": "Travelling Cart",
-      "specialUrl": "http://stardewvalleywiki.com/Travelling_Cart"
+  "potato" : {
+    "name" : "Potato",
+    "url" : "https://fieldsofmistria.wiki.gg/wiki/Potato",
+    "img" : "potato.png",
+    "seeds" : {
+      "sell" : 20,
+      "generalStore" : 40,
+      "special" : 0,
+      "specialLoc" : "",
+      "specialUrl" : ""
     },
-    "growth": {
-      "initial": 10,
-      "regrow": 2
+    "growth" : {
+      "initial" : 6,
+      "regrow" : 0
     },
-    "produce": {
-      "extra": 3,
-      "extraPerc": 1,
-      "price": 15,
-      "keg": 150 / 5,
-      "kegType": "Coffee"
-    }
+    "produce" : {
+      "extra" : 0,
+      "extraPerc" : 0,
+      "price" : 75
+    },
+    "season" : "spring",
+    "generalStoreUpgradeRequired" : false,
+    "spriteName" : "spr_ui_item_potato"
   },
-  "poppy": {
-    "name": "Poppy",
-    "url": "http://stardewvalleywiki.com/Poppy",
-    "img": "poppy.png",
-    "seeds": {
-      "sell": 50,
-      "pierre": 100,
-      "joja": 125,
-      "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
+  "poinsettia" : {
+    "name" : "Poinsettia",
+    "url" : "https://fieldsofmistria.wiki.gg/wiki/Poinsettia",
+    "img" : "poinsettia.png",
+    "seeds" : {
+      "sell" : 10,
+      "generalStore" : 20,
+      "special" : 0,
+      "specialLoc" : "",
+      "specialUrl" : ""
     },
-    "growth": {
-      "initial": 7,
-      "regrow": 0
+    "growth" : {
+      "initial" : 6,
+      "regrow" : 0
     },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      "price": 140
-    }
+    "produce" : {
+      "extra" : 0,
+      "extraPerc" : 0,
+      "price" : 30
+    },
+    "season" : "winter",
+    "generalStoreUpgradeRequired" : false,
+    "spriteName" : "spr_ui_item_poinsettia"
   },
-  "summerspangle": {
-    "name": "Summer Spangle",
-    "url": "http://stardewvalleywiki.com/Summer_Spangle",
-    "img": "summerspangle.png",
-    "seeds": {
-      "sell": 25,
-      "pierre": 50,
-      "joja": 62,
-      "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
+  "wheat" : {
+    "name" : "Wheat",
+    "url" : "https://fieldsofmistria.wiki.gg/wiki/Wheat",
+    "img" : "wheat.png",
+    "seeds" : {
+      "sell" : 150,
+      "generalStore" : 300,
+      "special" : 0,
+      "specialLoc" : "",
+      "specialUrl" : ""
     },
-    "growth": {
-      "initial": 8,
-      "regrow": 0
+    "growth" : {
+      "initial" : 9,
+      "regrow" : 3
     },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      "price": 90
-    }
+    "produce" : {
+      "extra" : 0,
+      "extraPerc" : 0,
+      "price" : 150
+    },
+    "season" : "fall",
+    "generalStoreUpgradeRequired" : false,
+    "spriteName" : "spr_ui_item_wheat"
   },
-  "parsnip": {
-    "name": "Parsnip",
-    "url": "http://stardewvalleywiki.com/Parsnip",
-    "img": "parsnip.png",
-    "seeds": {
-      "sell": 10,
-      "pierre": 20,
-      "joja": 25,
-      "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
+  "watermelon" : {
+    "name" : "Watermelon",
+    "url" : "https://fieldsofmistria.wiki.gg/wiki/Watermelon",
+    "img" : "watermelon.png",
+    "seeds" : {
+      "sell" : 35,
+      "generalStore" : 70,
+      "special" : 0,
+      "specialLoc" : "",
+      "specialUrl" : ""
     },
-    "growth": {
-      "initial": 4,
-      "regrow": 0
+    "growth" : {
+      "initial" : 9,
+      "regrow" : 0
     },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      "price": 35,
-      "jarType": "Pickles",
-      "kegType": "Juice"
-    }
+    "produce" : {
+      "extra" : 0,
+      "extraPerc" : 0,
+      "price" : 180
+    },
+    "season" : "summer",
+    "generalStoreUpgradeRequired" : false,
+    "spriteName" : "spr_ui_item_watermelon"
   },
-  "greenbean": {
-    "name": "Green Bean",
-    "url": "http://stardewvalleywiki.com/Green_Bean",
-    "img": "greenbean.png",
-    "seeds": {
-      "sell": 30,
-      "pierre": 60,
-      "joja": 75,
-      "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
+  "beet" : {
+    "name" : "Beet",
+    "url" : "https://fieldsofmistria.wiki.gg/wiki/Beet",
+    "img" : "beet.png",
+    "seeds" : {
+      "sell" : 12,
+      "generalStore" : 25,
+      "special" : 0,
+      "specialLoc" : "",
+      "specialUrl" : ""
     },
-    "growth": {
-      "initial": 10,
-      "regrow": 3
+    "growth" : {
+      "initial" : 4,
+      "regrow" : 0
     },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      "price": 40,
-      "jarType": "Pickles",
-      "kegType": "Juice"
-    }
+    "produce" : {
+      "extra" : 0,
+      "extraPerc" : 0,
+      "price" : 40
+    },
+    "season" : "winter",
+    "generalStoreUpgradeRequired" : false,
+    "spriteName" : "spr_ui_item_beet"
   },
-  "cauliflower": {
-    "name": "Cauliflower",
-    "url": "http://stardewvalleywiki.com/Cauliflower",
-    "img": "cauliflower.png",
-    "seeds": {
-      "sell": 40,
-      "pierre": 80,
-      "joja": 100,
-      "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
+  "daisy" : {
+    "name" : "Daisy",
+    "url" : "https://fieldsofmistria.wiki.gg/wiki/Daisy",
+    "img" : "daisy.png",
+    "seeds" : {
+      "sell" : 5,
+      "generalStore" : 10,
+      "special" : 0,
+      "specialLoc" : "",
+      "specialUrl" : ""
     },
-    "growth": {
-      "initial": 12,
-      "regrow": 0
+    "growth" : {
+      "initial" : 4,
+      "regrow" : 0
     },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      "price": 175,
-      "jarType": "Pickles",
-      "kegType": "Juice"
-    }
+    "produce" : {
+      "extra" : 0,
+      "extraPerc" : 0,
+      "price" : 15
+    },
+    "season" : "summer",
+    "generalStoreUpgradeRequired" : false,
+    "spriteName" : "spr_ui_item_daisy"
   },
-  "potato": {
-    "name": "Potato",
-    "url": "http://stardewvalleywiki.com/Potato",
-    "img": "potato.png",
-    "seeds": {
-      "sell": 25,
-      "pierre": 50,
-      "joja": 62,
-      "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
+  "catmint" : {
+    "name" : "Catmint",
+    "url" : "https://fieldsofmistria.wiki.gg/wiki/Catmint",
+    "img" : "catmint.png",
+    "seeds" : {
+      "sell" : 10,
+      "generalStore" : 20,
+      "special" : 0,
+      "specialLoc" : "",
+      "specialUrl" : ""
     },
-    "growth": {
-      "initial": 6,
-      "regrow": 0
+    "growth" : {
+      "initial" : 6,
+      "regrow" : 0
     },
-    "produce": {
-      "extra": 1,
-      "extraPerc": 0.25, // technically (0.2^1) + (0.2^2) + (0.2^3) ...
-      "price": 80,
-      "jarType": "Pickles",
-      "kegType": "Juice"
-    }
+    "produce" : {
+      "extra" : 0,
+      "extraPerc" : 0,
+      "price" : 30
+    },
+    "season" : "summer",
+    "generalStoreUpgradeRequired" : false,
+    "spriteName" : "spr_ui_item_catmint"
   },
-  "garlic": {
-    "name": "Garlic",
-    "url": "http://stardewvalleywiki.com/Garlic",
-    "img": "garlic.png",
-    "seeds": {
-      "sell": 20,
-      "pierre": 40,
-      "joja": 0,
-      "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
+  "daffodil" : {
+    "name" : "Daffodil",
+    "url" : "https://fieldsofmistria.wiki.gg/wiki/Daffodil",
+    "img" : "daffodil.png",
+    "seeds" : {
+      "sell" : 7,
+      "generalStore" : 15,
+      "special" : 0,
+      "specialLoc" : "",
+      "specialUrl" : ""
     },
-    "growth": {
-      "initial": 4,
-      "regrow": 0
+    "growth" : {
+      "initial" : 4,
+      "regrow" : 0
     },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      "price": 60,
-      "jarType": "Pickles",
-      "kegType": "Juice"
-    }
+    "produce" : {
+      "extra" : 0,
+      "extraPerc" : 0,
+      "price" : 25
+    },
+    "season" : "spring",
+    "generalStoreUpgradeRequired" : false,
+    "spriteName" : "spr_ui_item_daffodil"
   },
-  "taroroot": {
-    "name": "Taro Root",
-    "url": "http://stardewvalleywiki.com/Taro_Root",
-    "img": "taroroot.png",
-    "seeds": {
-      "sell": 20,
-      "pierre": 0,
-      "joja": 0,
-      "special": 24,
-      "specialLoc": "Island Trader",
-      "specialUrl": "http://stardewvalleywiki.com/Island_Trader"
+  "strawberry" : {
+    "name" : "Strawberry",
+    "url" : "https://fieldsofmistria.wiki.gg/wiki/Strawberry",
+    "img" : "strawberry.png",
+    "seeds" : {
+      "sell" : 150,
+      "generalStore" : 300,
+      "special" : 0,
+      "specialLoc" : "",
+      "specialUrl" : ""
     },
-    "growth": {
-      "initial": 10,
-      "regrow": 0
+    "growth" : {
+      "initial" : 5,
+      "regrow" : 3
     },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      "price": 100,
-      "jarType": "Pickles",
-      "kegType": "Juice"
-    }
+    "produce" : {
+      "extra" : 0,
+      "extraPerc" : 0,
+      "price" : 125
+    },
+    "season" : "spring",
+    "generalStoreUpgradeRequired" : false,
+    "spriteName" : "spr_ui_item_strawberry"
   },
-  "kale": {
-    "name": "Kale",
-    "url": "http://stardewvalleywiki.com/Kale",
-    "img": "kale.png",
-    "seeds": {
-      "sell": 35,
-      "pierre": 70,
-      "joja": 87,
-      "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
+  "sweet_potato" : {
+    "name" : "Sweet Potato",
+    "url" : "https://fieldsofmistria.wiki.gg/wiki/Sweet_Potato",
+    "img" : "sweet_potato.png",
+    "seeds" : {
+      "sell" : 12,
+      "generalStore" : 25,
+      "special" : 0,
+      "specialLoc" : "",
+      "specialUrl" : ""
     },
-    "growth": {
-      "initial": 6,
-      "regrow": 0
+    "growth" : {
+      "initial" : 4,
+      "regrow" : 0
     },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      "price": 110,
-      "jarType": "Pickles",
-      "kegType": "Juice"
-    }
+    "produce" : {
+      "extra" : 0,
+      "extraPerc" : 0,
+      "price" : 40
+    },
+    "season" : "fall",
+    "generalStoreUpgradeRequired" : false,
+    "spriteName" : "spr_ui_item_sweet_potato"
   },
-  "unmilledrice": {
-    "name": "Unmilled Rice",
-    "url": "http://stardewvalleywiki.com/Unmilled_Rice",
-    "img": "unmilledrice.png",
-    "seeds": {
-      "sell": 20,
-      "pierre": 40,
-      "joja": 0,
-      "special": 1000,
-      "specialLoc": "Travelling Cart",
-      "specialUrl": "http://stardewvalleywiki.com/Travelling_Cart"
+  "tulip" : {
+    "name" : "Tulip",
+    "url" : "https://fieldsofmistria.wiki.gg/wiki/Tulip",
+    "img" : "tulip.png",
+    "seeds" : {
+      "sell" : 10,
+      "generalStore" : 20,
+      "special" : 0,
+      "specialLoc" : "",
+      "specialUrl" : ""
     },
-    "growth": {
-      "initial": 8,
-      "regrow": 0
+    "growth" : {
+      "initial" : 6,
+      "regrow" : 0
     },
-    "produce": {
-      "extra": 1,
-      "extraPerc": 0.11,
-      "price": 30,
-      "jarType": "Pickles",
-      "kegType": "Juice"
-    }
+    "produce" : {
+      "extra" : 0,
+      "extraPerc" : 0,
+      "price" : 30
+    },
+    "season" : "spring",
+    "generalStoreUpgradeRequired" : false,
+    "spriteName" : "spr_ui_item_tulip"
   },
-  "rhubarb": {
-    "name": "Rhubarb",
-    "url": "http://stardewvalleywiki.com/Rhubarb",
-    "img": "rhubarb.png",
-    "seeds": {
-      "sell": 50,
-      "pierre": 0,
-      "joja": 0,
-      "special": 100,
-      "specialLoc": "Oasis",
-      "specialUrl": "http://stardewvalleywiki.com/Oasis"
+  "cosmos" : {
+    "name" : "Cosmos",
+    "url" : "https://fieldsofmistria.wiki.gg/wiki/Cosmos",
+    "img" : "cosmos.png",
+    "seeds" : {
+      "sell" : 10,
+      "generalStore" : 20,
+      "special" : 0,
+      "specialLoc" : "",
+      "specialUrl" : ""
     },
-    "growth": {
-      "initial": 13,
-      "regrow": 0
+    "growth" : {
+      "initial" : 6,
+      "regrow" : 0
     },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      "price": 220,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
-    }
+    "produce" : {
+      "extra" : 0,
+      "extraPerc" : 0,
+      "price" : 30
+    },
+    "season" : "summer",
+    "generalStoreUpgradeRequired" : false,
+    "spriteName" : "spr_ui_item_cosmos"
   },
-  "melon": {
-    "name": "Melon",
-    "url": "http://stardewvalleywiki.com/Melon",
-    "img": "melon.png",
-    "seeds": {
-      "sell": 40,
-      "pierre": 80,
-      "joja": 100,
-      "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
+  "rice_stalk" : {
+    "name" : "Rice Stalk",
+    "url" : "https://fieldsofmistria.wiki.gg/wiki/Rice_Stalk",
+    "img" : "rice_stalk.png",
+    "seeds" : {
+      "sell" : 150,
+      "generalStore" : 300,
+      "special" : 0,
+      "specialLoc" : "",
+      "specialUrl" : ""
     },
-    "growth": {
-      "initial": 12,
-      "regrow": 0
+    "growth" : {
+      "initial" : 9,
+      "regrow" : 3
     },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      "price": 250,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
-    }
+    "produce" : {
+      "extra" : 0,
+      "extraPerc" : 0,
+      "price" : 150
+    },
+    "season" : "fall",
+    "generalStoreUpgradeRequired" : true,
+    "spriteName" : "spr_ui_item_rice_stalk"
   },
-  "tomato": {
-    "name": "Tomato",
-    "url": "http://stardewvalleywiki.com/Tomato",
-    "img": "tomato.png",
-    "seeds": {
-      "sell": 25,
-      "pierre": 50,
-      "joja": 62,
-      "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
+  "snow_peas" : {
+    "name" : "Snow Peas",
+    "url" : "https://fieldsofmistria.wiki.gg/wiki/Snow_Peas",
+    "img" : "snow_peas.png",
+    "seeds" : {
+      "sell" : 150,
+      "generalStore" : 300,
+      "special" : 0,
+      "specialLoc" : "",
+      "specialUrl" : ""
     },
-    "growth": {
-      "initial": 11,
-      "regrow": 4
+    "growth" : {
+      "initial" : 5,
+      "regrow" : 3
     },
-    "produce": {
-      "extra": 1,
-      "extraPerc": 0.05,
-      "price": 60,
-      "jarType": "Pickles",
-      "kegType": "Juice"
-    }
+    "produce" : {
+      "extra" : 0,
+      "extraPerc" : 0,
+      "price" : 125
+    },
+    "season" : "winter",
+    "generalStoreUpgradeRequired" : false,
+    "spriteName" : "spr_ui_item_snow_peas"
   },
-  "blueberry": {
-    "name": "Blueberry",
-    "url": "http://stardewvalleywiki.com/Blueberry",
-    "img": "blueberry.png",
-    "seeds": {
-      "sell": 40,
-      "pierre": 80,
-      "joja": 0,
-      "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
+  "sugar_cane" : {
+    "name" : "Sugar Cane",
+    "url" : "https://fieldsofmistria.wiki.gg/wiki/Sugar_Cane",
+    "img" : "sugar_cane.png",
+    "seeds" : {
+      "sell" : 20,
+      "generalStore" : 40,
+      "special" : 0,
+      "specialLoc" : "",
+      "specialUrl" : ""
     },
-    "growth": {
-      "initial": 13,
-      "regrow": 4
+    "growth" : {
+      "initial" : 6,
+      "regrow" : 0
     },
-    "produce": {
-      "extra": 2,
-      "extraPerc": 1,
-      "price": 50,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
-    }
+    "produce" : {
+      "extra" : 0,
+      "extraPerc" : 0,
+      "price" : 80
+    },
+    "season" : "summer",
+    "generalStoreUpgradeRequired" : true,
+    "spriteName" : "spr_ui_item_sugar_cane"
   },
-  "hotpepper": {
-    "name": "Hot Pepper",
-    "url": "http://stardewvalleywiki.com/Hot_Pepper",
-    "img": "hotpepper.png",
-    "seeds": {
-      "sell": 20,
-      "pierre": 40,
-      "joja": 50,
-      "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
+  "cranberry" : {
+    "name" : "Cranberry",
+    "url" : "https://fieldsofmistria.wiki.gg/wiki/Cranberry",
+    "img" : "cranberry.png",
+    "seeds" : {
+      "sell" : 150,
+      "generalStore" : 300,
+      "special" : 0,
+      "specialLoc" : "",
+      "specialUrl" : ""
     },
-    "growth": {
-      "initial": 5,
-      "regrow": 3
+    "growth" : {
+      "initial" : 5,
+      "regrow" : 3
     },
-    "produce": {
-      "extra": 1,
-      "extraPerc": 0.03,
-      "price": 40,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
-    }
+    "produce" : {
+      "extra" : 0,
+      "extraPerc" : 0,
+      "price" : 125
+    },
+    "season" : "fall",
+    "generalStoreUpgradeRequired" : false,
+    "spriteName" : "spr_ui_item_cranberry"
   },
-  "wheat": {
-    "name": "Wheat",
-    "url": "http://stardewvalleywiki.com/Wheat",
-    "img": "wheat.png",
-    "seeds": {
-      "sell": 5,
-      "pierre": 10,
-      "joja": 12,
-      "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
+  "turnip" : {
+    "name" : "Turnip",
+    "url" : "https://fieldsofmistria.wiki.gg/wiki/Turnip",
+    "img" : "turnip.png",
+    "seeds" : {
+      "sell" : 12,
+      "generalStore" : 25,
+      "special" : 0,
+      "specialLoc" : "",
+      "specialUrl" : ""
     },
-    "growth": {
-      "initial": 4,
-      "regrow": 0
+    "growth" : {
+      "initial" : 4,
+      "regrow" : 0
     },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      "price": 25,
-      "keg": 200,
-      "jarType": "Pickles",
-      "kegType": "Beer"
-    }
+    "produce" : {
+      "extra" : 0,
+      "extraPerc" : 0,
+      "price" : 40
+    },
+    "season" : "spring",
+    "generalStoreUpgradeRequired" : false,
+    "spriteName" : "spr_ui_item_turnip"
   },
-  "radish": {
-    "name": "Radish",
-    "url": "http://stardewvalleywiki.com/Radish",
-    "img": "radish.png",
-    "seeds": {
-      "sell": 20,
-      "pierre": 40,
-      "joja": 50,
-      "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
+  "pumpkin" : {
+    "name" : "Pumpkin",
+    "url" : "https://fieldsofmistria.wiki.gg/wiki/Pumpkin",
+    "img" : "pumpkin.png",
+    "seeds" : {
+      "sell" : 35,
+      "generalStore" : 70,
+      "special" : 0,
+      "specialLoc" : "",
+      "specialUrl" : ""
     },
-    "growth": {
-      "initial": 6,
-      "regrow": 0
+    "growth" : {
+      "initial" : 9,
+      "regrow" : 0
     },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      "price": 90,
-      "jarType": "Pickles",
-      "kegType": "Juice"
-    }
+    "produce" : {
+      "extra" : 0,
+      "extraPerc" : 0,
+      "price" : 180
+    },
+    "season" : "fall",
+    "generalStoreUpgradeRequired" : false,
+    "spriteName" : "spr_ui_item_pumpkin"
   },
-  "redcabbage": {
-    "name": "Red Cabbage",
-    "url": "http://stardewvalleywiki.com/Red_Cabbage",
-    "img": "redcabbage.png",
-    "seeds": {
-      "sell": 50,
-      "pierre": 100,
-      "joja": 0,
-      "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
+  "carrot" : {
+    "name" : "Carrot",
+    "url" : "https://fieldsofmistria.wiki.gg/wiki/Carrot",
+    "img" : "carrot.png",
+    "seeds" : {
+      "sell" : 20,
+      "generalStore" : 40,
+      "special" : 0,
+      "specialLoc" : "",
+      "specialUrl" : ""
     },
-    "growth": {
-      "initial": 9,
-      "regrow": 0
+    "growth" : {
+      "initial" : 6,
+      "regrow" : 0
     },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      "price": 260,
-      "jarType": "Pickles",
-      "kegType": "Juice"
-    }
-  },
-  "starfruit": {
-    "name": "Starfruit",
-    "url": "http://stardewvalleywiki.com/Starfruit",
-    "img": "starfruit.png",
-    "seeds": {
-      "sell": 200,
-      "pierre": 0,
-      "joja": 0,
-      "special": 400,
-      "specialLoc": "Oasis",
-      "specialUrl": "http://stardewvalleywiki.com/Oasis"
+    "produce" : {
+      "extra" : 0,
+      "extraPerc" : 0,
+      "price" : 80
     },
-    "growth": {
-      "initial": 13,
-      "regrow": 0
-    },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      "price": 750,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
-    }
-  },
-  "corn": {
-    "name": "Corn",
-    "url": "http://stardewvalleywiki.com/Corn",
-    "img": "corn.png",
-    "seeds": {
-      "sell": 75,
-      "pierre": 150,
-      "joja": 187,
-      "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
-    },
-    "growth": {
-      "initial": 14,
-      "regrow": 4
-    },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      "price": 50,
-      "jarType": "Pickles",
-      "kegType": "Juice"
-    }
-  },
-  "eggplant": {
-    "name": "Eggplant",
-    "url": "http://stardewvalleywiki.com/Eggplant",
-    "img": "eggplant.png",
-    "seeds": {
-      "sell": 10,
-      "pierre": 20,
-      "joja": 25,
-      "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
-    },
-    "growth": {
-      "initial": 5,
-      "regrow": 5
-    },
-    "produce": {
-      "extra": 1,
-      "extraPerc": 0.002,
-      "price": 60,
-      "jarType": "Pickles",
-      "kegType": "Juice"
-    }
-  },
-  "artichoke": {
-    "name": "Artichoke",
-    "url": "http://stardewvalleywiki.com/Artichoke",
-    "img": "artichoke.png",
-    "seeds": {
-      "sell": 15,
-      "pierre": 30,
-      "joja": 0,
-      "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
-    },
-    "growth": {
-      "initial": 8,
-      "regrow": 0
-    },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      "price": 160,
-      "jarType": "Pickles",
-      "kegType": "Juice"
-    }
-  },
-  "pumpkin": {
-    "name": "Pumpkin",
-    "url": "http://stardewvalleywiki.com/Pumpkin",
-    "img": "pumpkin.png",
-    "seeds": {
-      "sell": 50,
-      "pierre": 100,
-      "joja": 125,
-      "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
-    },
-    "growth": {
-      "initial": 13,
-      "regrow": 0
-    },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      "price": 320,
-      "jarType": "Pickles",
-      "kegType": "Juice"
-    }
-  },
-  "bokchoy": {
-    "name": "Bok Choy",
-    "url": "http://stardewvalleywiki.com/Bok_Choy",
-    "img": "bokchoy.png",
-    "seeds": {
-      "sell": 25,
-      "pierre": 50,
-      "joja": 62,
-      "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
-    },
-    "growth": {
-      "initial": 4,
-      "regrow": 0
-    },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      "price": 80,
-      "jarType": "Pickles",
-      "kegType": "Juice"
-    }
-  },
-  "yam": {
-    "name": "Yam",
-    "url": "http://stardewvalleywiki.com/Yam",
-    "img": "yam.png",
-    "seeds": {
-      "sell": 30,
-      "pierre": 60,
-      "joja": 75,
-      "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
-    },
-    "growth": {
-      "initial": 10,
-      "regrow": 0
-    },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      "price": 160,
-      "jarType": "Pickles",
-      "kegType": "Juice"
-    }
-  },
-  "cranberries": {
-    "name": "Cranberries",
-    "url": "http://stardewvalleywiki.com/Cranberries",
-    "img": "cranberries.png",
-    "seeds": {
-      "sell": 60,
-      "pierre": 240,
-      "joja": 300,
-      "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
-    },
-    "growth": {
-      "initial": 7,
-      "regrow": 5
-    },
-    "produce": {
-      "extra": 1,
-      "extraPerc": 1,
-      "price": 75,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
-    }
-  },
-  "beet": {
-    "name": "Beet",
-    "url": "http://stardewvalleywiki.com/Beet",
-    "img": "beet.png",
-    "seeds": {
-      "sell": 10,
-      "pierre": 0,
-      "joja": 0,
-      "special": 20,
-      "specialLoc": "Oasis",
-      "specialUrl": "http://stardewvalleywiki.com/Oasis"
-    },
-    "growth": {
-      "initial": 6,
-      "regrow": 0
-    },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      "price": 100,
-      "jarType": "Pickles",
-      "kegType": "Juice"
-    }
-  },
-  "ancientfruit": {
-    "name": "Ancient Fruit",
-    "url": "http://stardewvalleywiki.com/Ancient_Fruit",
-    "img": "ancientfruit.png",
-    "seeds": {
-      "sell": 30,
-      "pierre": 0,
-      "joja": 0,
-      "special": 0,
-      "specialLoc": "Unpurchasable",
-      "specialUrl": "https://stardewvalleywiki.com/Ancient_Seeds"
-    },
-    "growth": {
-      "initial": 28,
-      "regrow": 7
-    },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      "price": 550,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
-    }
-  },
-  "cactusfruit": {
-    "name": "Cactus Fruit",
-    "url": "http://stardewvalleywiki.com/Cactus_Fruit",
-    "img": "cactusfruit.png",
-    "seeds": {
-      "sell": 0,
-      "pierre": 0,
-      "joja": 0,
-      "special": 150,
-      "specialLoc": "Oasis",
-      "specialUrl": "http://stardewvalleywiki.com/Oasis"
-    },
-    "growth": {
-      "initial": 12,
-      "regrow": 3
-    },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      "price": 75,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
-    }
-  },
-  "strawberry": {
-    "name": "Strawberry",
-    "url": "http://stardewvalleywiki.com/Strawberry",
-    "img": "strawberry.png",
-    "seeds": {
-      "sell": 0,
-      "pierre": 0,
-      "joja": 0,
-      "special": 100,
-      "specialLoc": "Egg Festival",
-      "specialUrl": "http://stardewvalleywiki.com/Egg_Festival"
-    },
-    "growth": {
-      "initial": 8,
-      "regrow": 4
-    },
-    "produce": {
-      "extra": 1,
-      "extraPerc": 0.02,
-      "price": 120,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
-    }
-  },
-  "springseeds": {
-    "name": "Spring Seeds",
-    "url": "http://stardewvalleywiki.com/Spring_Seeds",
-    "img": "springseeds.png",
-    "seeds": {
-      "sell": 0,
-      "pierre": 0,
-      "joja": 0,
-      "special": 1000,
-      "specialLoc": "Travelling Cart",
-      "specialUrl": "http://stardewvalleywiki.com/Travelling_Cart"
-    },
-    "growth": {
-      "initial": 7,
-      "regrow": 0
-    },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      // (Wild Horseradish + Daffodil + Leek + Dandelion) / 4
-      "price": (50 + 30 + 60 + 40) / 4
-    },
-    "isWildseed": true
-  },
-  "summerseeds": {
-    "name": "Summer Seeds",
-    "url": "http://stardewvalleywiki.com/Summer_Seeds",
-    "img": "summerseeds.png",
-    "seeds": {
-      "sell": 0,
-      "pierre": 0,
-      "joja": 0,
-      "special": 1000,
-      "specialLoc": "Travelling Cart",
-      "specialUrl": "http://stardewvalleywiki.com/Travelling_Cart"
-    },
-    "growth": {
-      "initial": 7,
-      "regrow": 0
-    },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      // (Spice Berry + Grape + Sweet Pea) / 3
-      "price": (80 + 80 + 50) / 3,
-      "jarType": "Jelly",
-      "kegType": "Wine"
-    },
-    "isWildseed": true
-  },
-  "fallseeds": {
-    "name": "Fall Seeds",
-    "url": "http://stardewvalleywiki.com/Fall_Seeds",
-    "img": "fallseeds.png",
-    "seeds": {
-      "sell": 0,
-      "pierre": 0,
-      "joja": 0,
-      "special": 1000,
-      "specialLoc": "Travelling Cart",
-      "specialUrl": "http://stardewvalleywiki.com/Travelling_Cart"
-    },
-    "growth": {
-      "initial": 7,
-      "regrow": 0
-    },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      // (Blackberry + Common Mushroom + Hazelnut + Wild Plum) / 4
-      "price": (20 + 40 + 90 + 80) / 4,
-      "jarType": "Jelly",
-      "kegType": "Wine"
-    },
-    "isWildseed": true
-  },
-  "winterseeds": {
-    "name": "Winter Seeds",
-    "url": "http://stardewvalleywiki.com/Winter_Seeds",
-    "img": "winterseeds.png",
-    "seeds": {
-      "sell": 0,
-      "pierre": 0,
-      "joja": 0,
-      "special": 1000,
-      "specialLoc": "Travelling Cart",
-      "specialUrl": "http://stardewvalleywiki.com/Travelling_Cart"
-    },
-    "growth": {
-      "initial": 7,
-      "regrow": 0
-    },
-    "produce": {
-      "extra": 0,
-      "extraPerc": 0,
-      // (Crocus + Crystal Fruit + Snow Yam + Winter Root) / 4
-      "price": (60 + 150 + 100 + 70) / 4,
-      "jarType": "Jelly",
-      "kegType": "Wine"
-    },
-    "isWildseed": true
+    "season" : "spring",
+    "generalStoreUpgradeRequired" : true,
+    "spriteName" : "spr_ui_item_carrot"
   }
-};
+}
