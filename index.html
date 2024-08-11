@@ -3,11 +3,11 @@
 <html>
 	<head>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-		<meta name="description" content="A Stardew Valley crop profits calculator and visualizer." />
-		<title>Stardew Profits</title>
+		<meta name="description" content="A Fields of Mistria crop profits calculator and visualizer." />
+		<title>Mistria Profits</title>
 		<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 		<link rel="stylesheet" type="text/css" href="style/style.css" />
-		<link rel="shortcut icon" type="image/png" href="img/ancientfruit.png">
+		<link rel="shortcut icon" type="image/png" href="img/bag_of_tesserae.png">
 	</head>
 	<body>
 
@@ -27,19 +27,13 @@
 				<td>Season:</td>
 				<td>
 					<select id="select_season" onChange="rebuild()">
-						<option value="0" id="season_0" selected="true">Spring</option>
+						<option  value="0" id="season_0" selected="true">Spring</option>
 						<option value="1" id="season_1">Summer</option>
 						<option value="2" id="season_2">Fall</option>
 						<option value="3" id="season_3">Winter</option>
-						<option value="4" id="season_4">Greenhouse</option>
 					</select>
 				</td>
 			</tr>
-
-            <tr id="cross_season_row">
-                <td>Cross-Season:</td>
-                <td><input type="checkbox" id="cross_season" onChange="refresh()" /></td>
-            </tr>
 
 			<tr id="current_day_row">
 				<td>Current Day:</td>
@@ -54,53 +48,6 @@
             <tr>
                 <td>Number of Crops:</td>
                 <td><input type="number" id="number_planted" value="1" onChange="refresh()"/></td>
-            </tr>
-
-			<tr>
-				<td>Produce Type:</td>
-				<td>
-					<select id="select_produce" onChange="refresh()">
-						<option value="0" selected="true">Raw</option>
-						<option value="1">Jar</option>
-						<option value="2">Keg</option>
-                        <option value="3">Seeds</option>
-						<option value="4">Dehydrator</option>
-					</select>
-				</td>
-			</tr>
-
-            <tr>
-                <td colspan="2" class="sub">
-                    <table cellspacing="2" class="subt">
-                        <tr id="tr_equipment">
-                            <td>Equipment:</td>
-                            <td><input type="number" id="equipment" value="0" onChange="refresh()"/></td>
-                        </tr>
-                        <tr id="tr_check_sellRaw">
-                            <td>No Artisan Good:</td>
-                            <td><input type="checkbox" id="check_sellRaw" onChange="refresh()"/> Sell Raw<br /></td>
-                        </tr>
-                        <tr id="tr_check_sellExcess">
-                            <td>Excess:</td>
-                            <td><input type="checkbox" id="check_sellExcess" onChange="refresh()"/> Sell Raw<br /></td>
-                        </tr>
-                        <tr id="tr_check_byHarvest">
-                            <td>By Harvest:</td>
-                            <td><input type="checkbox" id="check_byHarvest" onChange="refresh()"/><br /></td>
-                        </tr>
-                        <tr id="tr_select_aging">
-                            <td>Aging:</td>
-                            <td >
-                                <select id="select_aging" onChange="refresh()">
-                                    <option value="0" selected="true">None</option>
-                                    <option value="1">Silver</option>
-                                    <option value="2">Gold</option>
-                                    <option value="3">Iridium</option>
-                                </select>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
             </tr>
 
 		</table>
@@ -124,128 +71,24 @@
                 <td><input type="number" id="max_seed_money" value="0" onChange="refresh()"/></td>
             </tr>
 
+			<!--
 			<tr>
 				<td>Seed Sources:</td>
 				<td>
-					<input type="checkbox" id="check_seedsPierre" onChange="rebuild()" checked="true" /> <label for="check_seedsPierre">Pierre</label><br />
-					<input type="checkbox" id="check_seedsJoja" onChange="rebuild()" checked="true" /> <label for="check_seedsJoja">Joja</label><br />
+					<input type="checkbox" id="check_seedsGeneralStore" onChange="rebuild()" checked="true" /> <label for="check_seedsGeneralStore">General Store</label><br />
 					<input type="checkbox" id="check_seedsSpecial" onChange="rebuild()" checked="true" /> <label for="check_seedsSpecial">Special</label>
 				</td>
 			</tr>
+			-->
 
 			<tr>
 				<td>Pay For Seeds:</td>
-				<td><input type="checkbox" id="check_buySeed" onChange="refresh()" /></td>
+				<td><input type="checkbox" id="check_buySeed" onChange="refresh()" checked="true" /></td>
 			</tr>
 
-            <tr>
-                <td>Process & Replant:</td>
-                <td><input type="checkbox" id="check_replant" onChange="refresh()" /> <label for="check_replant">(Forces even crops)</label></td>
-            </tr>
-
-            <tr>
-                <td>Use Next Year:</td>
-                <td><input type="checkbox" id="check_nextyear" onChange="refresh()" /></td>
-            </tr>
-
-			<tr>
-				<td>Fertilizer:</td>
-				<td>
-					<select id="select_fertilizer" onChange="refresh()">
-						<option value="0" selected="true">None</option>
-						<option value="1">Basic Fertilizer</option>
-						<option value="2">Quality Fertilizer</option>
-						<option value="5">Deluxe Fertilizer</option>
-						<option value="3">Speed-Gro</option>
-						<option value="4">Deluxe Speed-Gro</option>
-						<option value="6">Hyper Speed-Gro</option>
-					</select>
-				</td>
-			</tr>
-
-			<tr>
-				<td>Pay For Fertilizer:</td>
-				<td><input type="checkbox" id="check_buyFert" onChange="refresh()" /></td>
-			</tr>
-			<tr id = "deluxe_speed_input">
-				<td>Speed-Gro Source:</td>
-				<td>
-					<select id="speed_gro_source" onChange="refresh()">
-						<option value="0" selected="true">Pierre</option>
-						<option value="1">Sandy</option>
-				</td>
-			</tr>
 		</table>
 
 		<table cellspacing="2">
-
-			<tr>
-				<td>Farming Level:</td>
-				<td><input type="number" id="farming_level" value="0" onChange="refresh()"/></td>
-			</tr>
-
-			<tr>
-				<td colspan="2" class="sub">
-                    <table cellspacing="2" class="subt">
-                        <tr>
-                            <td>Level 5 Skill:</td>
-                            <td><input type="checkbox" id="check_skillsTill" onChange="refresh()" /> Tiller<br /></td>
-                        </tr>
-                        <tr>
-                            <td>Level 10 Skill:</td>
-                            <td >
-                                <select id="select_skills" onChange="refresh()">
-                                    <option value="0" selected="true">None</option>
-                                    <option value="1">Agriculturist</option>
-                                    <option value="2">Artisan</option>
-                                </select>
-                            </td>
-                        </tr>
-                    </table>
-				</td>
-			</tr>
-
-            <tr>
-                <td colspan="2" class="sub">
-                    <table class="subt">
-                    </table>
-                </td>
-            </tr>
-
-            <tr>
-                <td>Foraging Level:</td>
-                <td ><input type="number" id="foraging_level" value="0" onChange="refresh()"/></td>
-            </tr>
-
-            <tr>
-                <td colspan="2" class="sub">
-                    <table cellspacing="2" class="subt">
-                        <tr>
-                            <td>Level 5 skill:</td>
-                            <td><input type="checkbox" id="check_skillsGatherer" onChange="refresh()" /> Gatherer<br /></td>
-                        </tr>
-                        <tr>
-                            <td>Level 10 skill:</td>
-                            <td><input type="checkbox" id="check_skillsBotanist" onChange="refresh()" /> Botanist<br /></td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-
-			<tr>
-				<td>Farming Food Buff:</td>
-				<td>
-					<select id="select_food" onChange="refresh()">
-						<option value="0" selected="true">None</option>
-						<option value="1">Maple Bar</option>
-						<option value="1">Hashbrowns</option>
-						<option value="2">Complete Breakfast</option>
-						<option value="2">Pepper Poppers</option>
-						<option value="2">Tom Kha Soup</option>
-						<option value="3">Farmer's Lunch</option>
-					</select>
-				</td>
-			</tr>
 
 			<tr>
 				<td>Show Extra Info:</td>
@@ -265,7 +108,7 @@
 		</div>
 
 		<div class="footer">
-			<p><a href="http://stardewvalley.net/" target="_blank">Stardew Valley v1.6.7</a> &copy; <a href="https://twitter.com/ConcernedApe" target="_blank">ConcernedApe</a> | Website designed by <a href="https://twitter.com/thorinair_music" target="_blank">Thorinair</a> | <a href="https://github.com/Thorinair/Stardew-Profits" target="_blank">Stardew Profits v1.6.11</a></p>
+			<p><a href="https://www.fieldsofmistria.com/" target="_blank">Fields Of Mistria v0.11.3</a> &copy; <a href="https://twitter.com/ConcernedApe" target="_blank">NPC Studio</a> | Website based on <a href="https://thorinair.github.io/Stardew-Profits" target="_blank">Stardew Profits</a> by <a href="https://twitter.com/thorinair_music" target="_blank">Thorinair</a> | Modified by <a href="https://dioti.tumblr.com">Dioti</a> | <a href="https://github.com/Dioti/Mistria-Profits" target="_blank">Mistria Profits v0.1.0</a></p>
 		</div>
 
 		<script src="js/time.js"> </script>
