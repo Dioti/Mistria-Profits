@@ -1,5 +1,5 @@
 # Mistria Profits
-Mistria Profits is a calculation and graphing tool designed to help the players of the indie farming sim game "Fields of Mistria" to easily calculate and compare their profits from planting different crops under different conditions.
+Mistria Profits is a calculation and graphing tool designed to help the players of the indie farming sim "Fields of Mistria" to easily calculate and compare their profits from planting different crops under different conditions.
 
 Forked from the extremely cool [Stardew Profits](https://thorinair.github.io/Stardew-Profits) tool made by [Thorinair](https://twitter.com/thorinair_music).
 
