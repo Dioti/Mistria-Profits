@@ -1,7 +1,7 @@
 # Data Extract
 
 ## Summary
-Extract and export relevant data used in Mistria Profits. By Dioti.
+Extract and export relevant data used in Mistria Profits. Author: Dioti.
 
 ## Description
 Extract relevant crop data from `__fiddle__.json` and export it in a JSON format. Copy relevant crop icons from the game's exported sprites.
