@@ -257,8 +257,8 @@ input[type=checkbox] {
 .regrowth {
 	width: 10px;
 	height: 10px;
-	margin-bottom: 0px;
-	margin-left: 2px;
+	margin-bottom: -1px;
+	margin-left: 3px;
 	display: inline-block;
 	background-image: url("../img/regrowth.png");
 	background-repeat: no-repeat;
