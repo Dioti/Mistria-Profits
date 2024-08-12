@@ -1,9 +1,9 @@
 # Data Extract
--------------------------
-**Author**: Dioti
-**Summary**: Extract and export relevant data used in Mistria Profits
-**Description**: Extract relevant crop data from `__fiddle__.json` and export it in a JSON format. Copy relevant crop icons from the game's exported sprites.
--------------------------
+
+## Description
+Extract relevant crop data from `__fiddle__.json` and export it in a JSON format. Copy relevant crop icons from the game's exported sprites.
+
+## Instructions
 1) Download the UndertaleModTool: https://github.com/UnderminersTeam/UndertaleModTool
 2) Use the UndertaleModTool to extract game sprites to your game folder. (e.g. `E:\Program Files (x86)\Steam\steamapps\common\Fields of Mistria\Export_Sprites`)
 3) Copy `DataExtract.jar` and `extract.bat` to the game folder. (e.g. `E:\Program Files (x86)\Steam\steamapps\common\Fields of Mistria`)
