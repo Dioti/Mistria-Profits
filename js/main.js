@@ -502,6 +502,7 @@ function renderGraph() {
 			})
 		    .attr('width', barWidth)
 		    .attr('height', barWidth)
+				//.attr('class', 'pixelated')
 		    .attr("xlink:href", function(d) { return "img/" + d.img; });
 
 	barsTooltips = gTooltips.selectAll("rect")
@@ -672,11 +673,13 @@ function renderGraph() {
 
 					tooltipTr = tooltipTable.append("tr");
 					tooltipTr.append("td").attr("class", "tooltipTdLeftSpace").text("Time to grow:");
-					tooltipTr.append("td").attr("class", "tooltipTdRight").text(initialGrow + " days");
+					tooltipTr.append("td").attr("class", "tooltipTdRight").text(initialGrow + " days")
+					.append("div").attr("class", "initial");
 					tooltipTr = tooltipTable.append("tr");
 					tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Time to regrow:");
 					if (d.growth.regrow > 0)
-						tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.growth.regrow + " days");
+						tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.growth.regrow + " days")
+						.append("div").attr("class", "regrowth");
 					else
 						tooltipTr.append("td").attr("class", "tooltipTdRight").text("N/A");
 

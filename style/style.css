@@ -229,9 +229,9 @@ input[type=checkbox] {
 }
 
 .tesserae {
-	width: 16px;
-	height: 16px;
-	margin-bottom: -2px;
+	width: 14px;
+	height: 14px;
+	margin-bottom: -1px;
 	margin-left: 2px;
 	display: inline-block;
 	background-image: url("../img/tesserae.png");
@@ -239,6 +239,38 @@ input[type=checkbox] {
 	background-size: cover;
 	background-position: center center;
 	color: transparent;
+}
+
+.initial {
+	width: 11px;
+	height: 11px;
+	margin-bottom: -1px;
+	margin-left: 2px;
+	display: inline-block;
+	background-image: url("../img/clock.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	color: transparent;
+}
+
+.regrowth {
+	width: 10px;
+	height: 10px;
+	margin-bottom: 0px;
+	margin-left: 2px;
+	display: inline-block;
+	background-image: url("../img/regrowth.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	color: transparent;
+}
+
+.tesserae, .initial, .regrowth, .pixelated {
+	image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
 }
 
 .footer {
