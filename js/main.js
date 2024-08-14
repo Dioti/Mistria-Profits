@@ -56,15 +56,15 @@ var MAX_INT = Number.MAX_SAFE_INTEGER || Number.MAX_VALUE;
  * @return Formatted string.
  */
 function formatNumber(num) {
-    num = num.toFixed(2) + '';
-    x = num.split('.');
-    x1 = x[0];
-    x2 = x.length > 1 ? '.' + x[1] : '';
-    var rgx = /(\d+)(\d{3})/;
-    while (rgx.test(x1)) {
-        x1 = x1.replace(rgx, '$1' + ',' + '$2');
-    }
-    return x1 + x2;
+	num = num.toFixed(2) + '';
+	x = num.split('.');
+	x1 = x[0];
+	x2 = x.length > 1 ? '.' + x[1] : '';
+	var rgx = /(\d+)(\d{3})/;
+	while (rgx.test(x1)) {
+		x1 = x1.replace(rgx, '$1' + ',' + '$2');
+	}
+	return x1 + x2;
 }
 
 /*
@@ -116,10 +116,10 @@ function minSeedCost(crop) {
 	if (crop.seeds.generalStore != 0 && options.seeds.generalStore && crop.seeds.generalStore < minSeedCost)
 		minSeedCost = crop.seeds.generalStore;
 	if (crop.seeds.special != 0 && options.seeds.special && crop.seeds.special < minSeedCost)
-			minSeedCost = crop.seeds.special;
-    if (minSeedCost == Infinity)
-        minSeedCost = 0;
-			
+		minSeedCost = crop.seeds.special;
+	if (minSeedCost == Infinity)
+		minSeedCost = 0;
+
 	// console.log("Crop: " + crop.name + ", minSeedCost: " + minSeedCost);
 	return minSeedCost;
 }
@@ -144,30 +144,30 @@ function planted(crop) {
  * @return The total profit.
  */
 function profit(crop) {
-    profitData = {}
+	profitData = {}
 	var num_planted = planted(crop);
 	//var total_harvests = crop.harvests * num_planted;
-	
+
 	var netIncome = 0;
 	var netExpenses = 0;
 	var totalProfit = 0;
 	var totalReturnOnInvestment = 0;
 	var averageReturnOnInvestment = 0;
-	
+
 	//Skip keg/jar calculations for ineligible crops (where corp.produce.jar or crop.produce.keg = 0)
-	
-  var total_harvest = num_planted * 1.0 + num_planted * crop.produce.extraPerc * crop.produce.extra;
+
+	var total_harvest = num_planted * 1.0 + num_planted * crop.produce.extraPerc * crop.produce.extra;
 	var forSeeds = 0;
-	
+
 	var total_crops = total_harvest * crop.harvests;
-	
+
 	// console.log("Calculating raw produce value for: " + crop.name);
 	// Determine income
 	var tempSeeds = forSeeds;
-	
+
 	netIncome += crop.produce.price * total_crops;
-	
-	profitData.quantitySold  = Math.floor(total_crops - forSeeds);
+
+	profitData.quantitySold = Math.floor(total_crops - forSeeds);
 
 	// Determine expenses
 	if (options.buySeed) {
@@ -194,7 +194,7 @@ function profit(crop) {
 	profitData.totalReturnOnInvestment = totalReturnOnInvestment;
 	profitData.averageReturnOnInvestment = averageReturnOnInvestment;
 	profitData.netExpenses = netExpenses;
-  profitData.profit = totalProfit;
+	profitData.profit = totalProfit;
 
 	// console.log("Profit: " + profit);
 	//console.log(profitData);
@@ -209,7 +209,7 @@ function profit(crop) {
 function seedLoss(crop) {
 	var harvests = crop.harvests;
 
-    var loss = -minSeedCost(crop);
+	var loss = -minSeedCost(crop);
 
 	if (crop.growth.regrow == 0 && harvests > 0 && !options.replant)
 		loss = loss * harvests;
@@ -235,10 +235,10 @@ function fetchCrops() {
 	var season = seasons[options.season];
 
 	for (var i = 0; i < season.crops.length; i++) {
-			// if seed source exists (and store sources have a listed buy price - excludes special loc)
-	    if (options.seeds.generalStore && (season.crops[i].seeds.generalStore != 0) || (options.seeds.special && season.crops[i].seeds.specialLoc != "")) {
-	    	cropList.push(JSON.parse(JSON.stringify(season.crops[i])));
-	    	cropList[cropList.length - 1].id = i;
+		// if seed source exists (and store sources have a listed buy price - excludes special loc)
+		if (options.seeds.generalStore && (season.crops[i].seeds.generalStore != 0) || (options.seeds.special && season.crops[i].seeds.specialLoc != "")) {
+			cropList.push(JSON.parse(JSON.stringify(season.crops[i])));
+			cropList[cropList.length - 1].id = i;
 		}
 	}
 }
@@ -248,12 +248,12 @@ function fetchCrops() {
  */
 function valueCrops() {
 	for (var i = 0; i < cropList.length; i++) {
-		
+
 		cropList[i].planted = planted(cropList[i]);
 		cropList[i].harvests = harvests(cropList[i].id);
 		cropList[i].seedLoss = seedLoss(cropList[i]);
 		cropList[i].profitData = profit(cropList[i]);
-    cropList[i].profit = cropList[i].profitData.profit;
+		cropList[i].profit = cropList[i].profitData.profit;
 		cropList[i].totalReturnOnInvestment = cropList[i].profitData.totalReturnOnInvestment;
 		cropList[i].averageReturnOnInvestment = cropList[i].profitData.averageReturnOnInvestment;
 		cropList[i].netExpenses = cropList[i].profitData.netExpenses;
@@ -265,7 +265,7 @@ function valueCrops() {
 			cropList[i].drawSeedLoss = cropList[i].averageSeedLoss;
 			graphDescription = "Daily Profit"
 		}
-		else if ((options.average == 2) ){
+		else if ((options.average == 2)) {
 			if (options.buySeed) {
 				cropList[i].drawProfit = cropList[i].totalReturnOnInvestment;
 				graphDescription = "Total Return On Investment";
@@ -300,17 +300,17 @@ function valueCrops() {
  */
 function sortCrops() {
 	var swapped;
-    do {
-        swapped = false;
-        for (var i = 0; i < cropList.length - 1; i++) {
-            if (cropList[i].drawProfit < cropList[i + 1].drawProfit) {
-                var temp = cropList[i];
-                cropList[i] = cropList[i + 1];
-                cropList[i + 1] = temp;
-                swapped = true;
-            }
-        }
-    } while (swapped);
+	do {
+		swapped = false;
+		for (var i = 0; i < cropList.length - 1; i++) {
+			if (cropList[i].drawProfit < cropList[i + 1].drawProfit) {
+				var temp = cropList[i];
+				cropList[i] = cropList[i + 1];
+				cropList[i + 1] = temp;
+				swapped = true;
+			}
+		}
+	} while (swapped);
 
 
 	// console.log("==== SORTED ====");
@@ -326,11 +326,11 @@ function sortCrops() {
 function getMaxCropCount() {
 	var maxCropCount = 0;
 	var seasonWithMostCrops = null;
-	seasons.forEach(function(season) {
-			if (season.crops.length > maxCropCount) {
-					maxCropCount = season.crops.length;
-					seasonWithMostCrops = season.name;
-			}
+	seasons.forEach(function (season) {
+		if (season.crops.length > maxCropCount) {
+			maxCropCount = season.crops.length;
+			seasonWithMostCrops = season.name;
+		}
 	});
 	return maxCropCount;
 }
@@ -351,7 +351,7 @@ function updateScaleX() {
  */
 function updateScaleY() {
 	return d3.scale.linear()
-		.domain([0, d3.max(cropList, function(d) {
+		.domain([0, d3.max(cropList, function (d) {
 			//console.log(d.drawProfit);
 			//console.log((~~((d.drawProfit + 99) / 100) * 100));
 			if (d.drawProfit >= 0) {
@@ -376,7 +376,7 @@ function updateScaleY() {
 function updateScaleAxis() {
 	return d3.scale.linear()
 		.domain([
-			-d3.max(cropList, function(d) {
+			-d3.max(cropList, function (d) {
 				if (d.drawProfit >= 0) {
 					return (~~((d.drawProfit + 99) / 100) * 100);
 				}
@@ -389,7 +389,7 @@ function updateScaleAxis() {
 					return (~~((-profit + 99) / 100) * 100);
 				}
 			}),
-			d3.max(cropList, function(d) {
+			d3.max(cropList, function (d) {
 				if (d.drawProfit >= 0) {
 					return (~~((d.drawProfit + 99) / 100) * 100);
 				}
@@ -402,7 +402,7 @@ function updateScaleAxis() {
 					return (~~((-profit + 99) / 100) * 100);
 				}
 			})])
-		.range([height*2, 0]);
+		.range([height * 2, 0]);
 }
 
 /*
@@ -415,9 +415,9 @@ function renderGraph() {
 	var y = updateScaleY();
 	var ax = updateScaleAxis();
 
-    var width = barOffsetX + barPadding * 2 + (barWidth + barPadding) * cropList.length + paddingLeft;
-    if (width < svgMinWidth)
-        width = svgMinWidth;
+	var width = barOffsetX + barPadding * 2 + (barWidth + barPadding) * cropList.length + paddingLeft;
+	if (width < svgMinWidth)
+		width = svgMinWidth;
 	svg.attr("width", width).style("padding-top", "12px");
 	d3.select(".graph").attr("width", width);
 
@@ -436,150 +436,150 @@ function renderGraph() {
 		.attr("class", "axis")
 		.attr("x", 24)
 		.attr("y", 12)
-	 	.style("text-anchor", "start")
+		.style("text-anchor", "start")
 		.text(graphDescription);
 
 	barsProfit = gProfit.selectAll("rect")
 		.data(cropList)
 		.enter()
 		.append("rect")
-			.attr("x", function(d, i) {
-				if (d.drawProfit < 0 && options.buySeed)
-					return x(i) + barOffsetX + (barWidth / miniBar);
-				else
-					return x(i) + barOffsetX;
-			})
-			.attr("y", function(d) {
-				if (d.drawProfit >= 0)
-					return y(d.drawProfit) + barOffsetY;
-				else
-					return height + barOffsetY;
-			})
-			.attr("height", function(d) {
-				if (d.drawProfit >= 0)
-					return height - y(d.drawProfit);
-				else
-					return height - y(-d.drawProfit);
-			})
-			.attr("width", function(d) {
-				if (d.drawProfit < 0 && options.buySeed)
-					return barWidth - (barWidth / miniBar);
-				else
-					return barWidth;
-			})
- 			.attr("fill", function (d) {
- 				if (d.drawProfit >= 0)
- 					return "#37BD2F";
- 				else
- 					return "#EE513E";
- 			});
+		.attr("x", function (d, i) {
+			if (d.drawProfit < 0 && options.buySeed)
+				return x(i) + barOffsetX + (barWidth / miniBar);
+			else
+				return x(i) + barOffsetX;
+		})
+		.attr("y", function (d) {
+			if (d.drawProfit >= 0)
+				return y(d.drawProfit) + barOffsetY;
+			else
+				return height + barOffsetY;
+		})
+		.attr("height", function (d) {
+			if (d.drawProfit >= 0)
+				return height - y(d.drawProfit);
+			else
+				return height - y(-d.drawProfit);
+		})
+		.attr("width", function (d) {
+			if (d.drawProfit < 0 && options.buySeed)
+				return barWidth - (barWidth / miniBar);
+			else
+				return barWidth;
+		})
+		.attr("fill", function (d) {
+			if (d.drawProfit >= 0)
+				return "#37BD2F";
+			else
+				return "#EE513E";
+		});
 
 	barsSeed = gSeedLoss.selectAll("rect")
 		.data(cropList)
 		.enter()
 		.append("rect")
-			.attr("x", function(d, i) { return x(i) + barOffsetX; })
-			.attr("y", height + barOffsetY)
-			.attr("height", function(d) {
-				if (options.buySeed)
-					return height - y(-d.drawSeedLoss);
-				else
-					return 0;
-			})
-			.attr("width", barWidth / miniBar)
- 			.attr("fill", "#FF9A56");
+		.attr("x", function (d, i) { return x(i) + barOffsetX; })
+		.attr("y", height + barOffsetY)
+		.attr("height", function (d) {
+			if (options.buySeed)
+				return height - y(-d.drawSeedLoss);
+			else
+				return 0;
+		})
+		.attr("width", barWidth / miniBar)
+		.attr("fill", "#FF9A56");
 
- 	imgIcons = gIcons.selectAll("image")
+	imgIcons = gIcons.selectAll("image")
 		.data(cropList)
 		.enter()
 		.append("svg:image")
-			.attr("x", function(d, i) { return x(i) + barOffsetX; })
-			.attr("y", function(d) {
-				if (d.drawProfit >= 0)
-					return y(d.drawProfit) + barOffsetY - barWidth - barPadding;
-				else
-					return height + barOffsetY - barWidth - barPadding;
-			})
-		    .attr('width', barWidth)
-		    .attr('height', barWidth)
-				//.attr('class', 'pixelated')
-		    .attr("xlink:href", function(d) { return "img/" + d.img; });
+		.attr("x", function (d, i) { return x(i) + barOffsetX; })
+		.attr("y", function (d) {
+			if (d.drawProfit >= 0)
+				return y(d.drawProfit) + barOffsetY - barWidth - barPadding;
+			else
+				return height + barOffsetY - barWidth - barPadding;
+		})
+		.attr('width', barWidth)
+		.attr('height', barWidth)
+		//.attr('class', 'pixelated')
+		.attr("xlink:href", function (d) { return "img/" + d.img; });
 
 	barsTooltips = gTooltips.selectAll("rect")
 		.data(cropList)
 		.enter()
 		.append("rect")
-			.attr("x", function(d, i) { return x(i) + barOffsetX - barPadding/2; })
-			.attr("y", function(d) {
-				if (d.drawProfit >= 0)
-					return y(d.drawProfit) + barOffsetY - barWidth - barPadding;
-				else
-					return height + barOffsetY - barWidth - barPadding;
-			})
-			.attr("height", function(d) {
-				var topHeight = 0;
+		.attr("x", function (d, i) { return x(i) + barOffsetX - barPadding / 2; })
+		.attr("y", function (d) {
+			if (d.drawProfit >= 0)
+				return y(d.drawProfit) + barOffsetY - barWidth - barPadding;
+			else
+				return height + barOffsetY - barWidth - barPadding;
+		})
+		.attr("height", function (d) {
+			var topHeight = 0;
 
-				if (d.drawProfit >= 0)
-					topHeight = height + barWidth + barPadding - y(d.drawProfit);
-				else
-					topHeight = barWidth + barPadding;
+			if (d.drawProfit >= 0)
+				topHeight = height + barWidth + barPadding - y(d.drawProfit);
+			else
+				topHeight = barWidth + barPadding;
 
-				var lossArray = [0];
+			var lossArray = [0];
 
-				if (options.buySeed)
-					lossArray.push(d.drawSeedLoss);
-				if (d.drawProfit < 0)
-					lossArray.push(d.drawProfit);
+			if (options.buySeed)
+				lossArray.push(d.drawSeedLoss);
+			if (d.drawProfit < 0)
+				lossArray.push(d.drawProfit);
 
-				var swapped;
-			    do {
-			        swapped = false;
-			        for (var i = 0; i < lossArray.length - 1; i++) {
-			            if (lossArray[i] > lossArray[i + 1]) {
-			                var temp = lossArray[i];
-			                lossArray[i] = lossArray[i + 1];
-			                lossArray[i + 1] = temp;
-			                swapped = true;
-			            }
-			        }
-			    } while (swapped);
+			var swapped;
+			do {
+				swapped = false;
+				for (var i = 0; i < lossArray.length - 1; i++) {
+					if (lossArray[i] > lossArray[i + 1]) {
+						var temp = lossArray[i];
+						lossArray[i] = lossArray[i + 1];
+						lossArray[i + 1] = temp;
+						swapped = true;
+					}
+				}
+			} while (swapped);
 
-			    return topHeight + (height - y(-lossArray[0]));
-			})
-			.attr("width", barWidth + barPadding)
- 			.attr("opacity", "0")
- 			.attr("cursor", "pointer")
-			.on("mouseover", function(d) {
-				tooltip.selectAll("*").remove();
-				tooltip.style("visibility", "visible");
+			return topHeight + (height - y(-lossArray[0]));
+		})
+		.attr("width", barWidth + barPadding)
+		.attr("opacity", "0")
+		.attr("cursor", "pointer")
+		.on("mouseover", function (d) {
+			tooltip.selectAll("*").remove();
+			tooltip.style("visibility", "visible");
 
-				tooltip.append("h3").attr("class", "tooltipTitle").text(d.name);
+			tooltip.append("h3").attr("class", "tooltipTitle").text(d.name);
 
-				var tooltipTable = tooltip.append("table")
-					.attr("class", "tooltipTable")
-					.attr("cellspacing", 0);
-				var tooltipTr;
+			var tooltipTable = tooltip.append("table")
+				.attr("class", "tooltipTable")
+				.attr("cellspacing", 0);
+			var tooltipTr;
 
 
-				tooltipTr = tooltipTable.append("tr");
-				tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Total profit:");
-				if (d.profit > 0)
-					tooltipTr.append("td").attr("class", "tooltipTdRightPos").text("+" + formatNumber(d.profit))
-						.append("div").attr("class", "tesserae");
-				else
-					tooltipTr.append("td").attr("class", "tooltipTdRightNeg").text(formatNumber(d.profit))
-						.append("div").attr("class", "tesserae");
+			tooltipTr = tooltipTable.append("tr");
+			tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Total profit:");
+			if (d.profit > 0)
+				tooltipTr.append("td").attr("class", "tooltipTdRightPos").text("+" + formatNumber(d.profit))
+					.append("div").attr("class", "tesserae");
+			else
+				tooltipTr.append("td").attr("class", "tooltipTdRightNeg").text(formatNumber(d.profit))
+					.append("div").attr("class", "tesserae");
 
-				tooltipTr = tooltipTable.append("tr");
-				tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Profit per day:");
-				if (d.averageProfit > 0)
-					tooltipTr.append("td").attr("class", "tooltipTdRightPos").text("+" + formatNumber(d.averageProfit))
-						.append("div").attr("class", "tesserae");
-				else
-					tooltipTr.append("td").attr("class", "tooltipTdRightNeg").text(formatNumber(d.averageProfit))
-						.append("div").attr("class", "tesserae");
+			tooltipTr = tooltipTable.append("tr");
+			tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Profit per day:");
+			if (d.averageProfit > 0)
+				tooltipTr.append("td").attr("class", "tooltipTdRightPos").text("+" + formatNumber(d.averageProfit))
+					.append("div").attr("class", "tesserae");
+			else
+				tooltipTr.append("td").attr("class", "tooltipTdRightNeg").text(formatNumber(d.averageProfit))
+					.append("div").attr("class", "tesserae");
 
-				if (options.buySeed || options.buyFert) {
+			if (options.buySeed || options.buyFert) {
 				tooltipTr = tooltipTable.append("tr");
 				tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Return on investment:");
 				if (d.totalReturnOnInvestment > 0)
@@ -593,106 +593,106 @@ function renderGraph() {
 					tooltipTr.append("td").attr("class", "tooltipTdRightPos").text("+" + formatNumber(d.averageReturnOnInvestment) + "%");
 				else
 					tooltipTr.append("td").attr("class", "tooltipTdRightNeg").text(formatNumber(d.averageReturnOnInvestment) + "%");
-				}
+			}
 
-				if (options.buySeed) {
-					tooltipTr = tooltipTable.append("tr");
-					tooltipTr.append("td").attr("class", "tooltipTdLeftSpace").text("Total seed loss:");
-					tooltipTr.append("td").attr("class", "tooltipTdRightNeg").text(formatNumber(d.seedLoss))
-						.append("div").attr("class", "tesserae");
-
-					tooltipTr = tooltipTable.append("tr");
-					tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Seed loss per day:");
-					tooltipTr.append("td").attr("class", "tooltipTdRightNeg").text(formatNumber(d.averageSeedLoss))
-						.append("div").attr("class", "tesserae");
-				}
-				
+			if (options.buySeed) {
 				tooltipTr = tooltipTable.append("tr");
-				tooltipTr.append("td").attr("class", "tooltipTdLeftSpace").text("Quantity sold:");
-				if(d.profitData.quantitySold > 0 ){
-					tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.profitData.quantitySold);
-				}
-				else
-					tooltipTr.append("td").attr("class", "tooltipTdRightNeg").text(d.profitData.quantitySold);
-				
+				tooltipTr.append("td").attr("class", "tooltipTdLeftSpace").text("Total seed loss:");
+				tooltipTr.append("td").attr("class", "tooltipTdRightNeg").text(formatNumber(d.seedLoss))
+					.append("div").attr("class", "tesserae");
+
 				tooltipTr = tooltipTable.append("tr");
-				tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Duration:");
-				tooltipTr.append("td").attr("class", "tooltipTdRight").text(options.days + " days");
+				tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Seed loss per day:");
+				tooltipTr.append("td").attr("class", "tooltipTdRightNeg").text(formatNumber(d.averageSeedLoss))
+					.append("div").attr("class", "tesserae");
+			}
+
+			tooltipTr = tooltipTable.append("tr");
+			tooltipTr.append("td").attr("class", "tooltipTdLeftSpace").text("Quantity sold:");
+			if (d.profitData.quantitySold > 0) {
+				tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.profitData.quantitySold);
+			}
+			else
+				tooltipTr.append("td").attr("class", "tooltipTdRightNeg").text(d.profitData.quantitySold);
+
+			tooltipTr = tooltipTable.append("tr");
+			tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Duration:");
+			tooltipTr.append("td").attr("class", "tooltipTdRight").text(options.days + " days");
+			tooltipTr = tooltipTable.append("tr");
+			tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Planted:");
+			tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.planted);
+			tooltipTr = tooltipTable.append("tr");
+			tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Harvests:");
+			tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.harvests);
+
+			if (options.extra) {
+
+				var seedPrice = d.seeds.sell;
+				var initialGrow = 0;
+				initialGrow += d.growth.initial;
+
+				tooltip.append("h3").attr("class", "tooltipTitleExtra").text("Crop info");
+				tooltipTable = tooltip.append("table")
+					.attr("class", "tooltipTable")
+					.attr("cellspacing", 0);
+
 				tooltipTr = tooltipTable.append("tr");
-				tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Planted:");
-				tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.planted);
+				tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Sell (Crop):");
+				tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.produce.price)
+					.append("div").attr("class", "tesserae");
+
 				tooltipTr = tooltipTable.append("tr");
-				tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Harvests:");
-				tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.harvests);
-
-				if (options.extra) {
-
-					var seedPrice = d.seeds.sell;
-					var initialGrow = 0;
-					initialGrow += d.growth.initial;
-
-					tooltip.append("h3").attr("class", "tooltipTitleExtra").text("Crop info");
-					tooltipTable = tooltip.append("table")
-						.attr("class", "tooltipTable")
-						.attr("cellspacing", 0);
-
-					tooltipTr = tooltipTable.append("tr");
-					tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Sell (Crop):");
-					tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.produce.price)
-						.append("div").attr("class", "tesserae");
-
-					tooltipTr = tooltipTable.append("tr");
-					tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Sell (Seeds):");
-					tooltipTr.append("td").attr("class", "tooltipTdRight").text(seedPrice)
+				tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Sell (Seeds):");
+				tooltipTr.append("td").attr("class", "tooltipTdRight").text(seedPrice)
 					.append("div").attr("class", "tesserae");
 
 
-					var first = true;
-					if (d.seeds.generalStore > 0) {
-						tooltipTr = tooltipTable.append("tr");
-						tooltipTr.append("td").attr("class", "tooltipTdLeftSpace").text("Seed cost (General Store):");
-						first = false;
-						tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.seeds.generalStore)
-						.append("div").attr("class", "tesserae");
-					}
-					
-					if (d.seeds.special > 0) {
-						tooltipTr = tooltipTable.append("tr");
-						if (first) {
-							tooltipTr.append("td").attr("class", "tooltipTdLeftSpace").text("Seeds (Special):");
-							first = false;
-						}
-						else
-							tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Seeds (Special):");
-						tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.seeds.special)
-						.append("div").attr("class", "tesserae");
-						tooltipTr = tooltipTable.append("tr");
-						tooltipTr.append("td").attr("class", "tooltipTdLeft").text("");
-						tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.seeds.specialLoc);
-					}
-
+				var first = true;
+				if (d.seeds.generalStore > 0) {
 					tooltipTr = tooltipTable.append("tr");
-					tooltipTr.append("td").attr("class", "tooltipTdLeftSpace").text("Time to grow:");
-					tooltipTr.append("td").attr("class", "tooltipTdRight").text(initialGrow + " days")
-					.append("div").attr("class", "initial");
-					tooltipTr = tooltipTable.append("tr");
-					tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Time to regrow:");
-					if (d.growth.regrow > 0)
-						tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.growth.regrow + " days")
-						.append("div").attr("class", "regrowth");
-					else
-						tooltipTr.append("td").attr("class", "tooltipTdRight").text("N/A");
-
+					tooltipTr.append("td").attr("class", "tooltipTdLeftSpace").text("Seed cost (General Store):");
+					first = false;
+					tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.seeds.generalStore)
+						.append("div").attr("class", "tesserae");
 				}
-			})
-			.on("mousemove", function() {
-				tooltip.style("top", (d3.event.pageY - 16) + "px").style("left",(d3.event.pageX + 20) + "px");
-			})
-			.on("mouseout", function() { tooltip.style("visibility", "hidden"); })
-			.on("click", function(d) { 
-				if(!options.disableLinks)
-					window.open(d.url, "_blank"); 
-			});
+
+				if (d.seeds.special > 0) {
+					tooltipTr = tooltipTable.append("tr");
+					if (first) {
+						tooltipTr.append("td").attr("class", "tooltipTdLeftSpace").text("Seeds (Special):");
+						first = false;
+					}
+					else
+						tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Seeds (Special):");
+					tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.seeds.special)
+						.append("div").attr("class", "tesserae");
+					tooltipTr = tooltipTable.append("tr");
+					tooltipTr.append("td").attr("class", "tooltipTdLeft").text("");
+					tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.seeds.specialLoc);
+				}
+
+				tooltipTr = tooltipTable.append("tr");
+				tooltipTr.append("td").attr("class", "tooltipTdLeftSpace").text("Time to grow:");
+				tooltipTr.append("td").attr("class", "tooltipTdRight").text(initialGrow + " days")
+					.append("div").attr("class", "initial");
+				tooltipTr = tooltipTable.append("tr");
+				tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Time to regrow:");
+				if (d.growth.regrow > 0)
+					tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.growth.regrow + " days")
+						.append("div").attr("class", "regrowth");
+				else
+					tooltipTr.append("td").attr("class", "tooltipTdRight").text("N/A");
+
+			}
+		})
+		.on("mousemove", function () {
+			tooltip.style("top", (d3.event.pageY - 16) + "px").style("left", (d3.event.pageX + 20) + "px");
+		})
+		.on("mouseout", function () { tooltip.style("visibility", "hidden"); })
+		.on("click", function (d) {
+			if (!options.disableLinks)
+				window.open(d.url, "_blank");
+		});
 
 }
 
@@ -714,112 +714,112 @@ function updateGraph() {
 		.call(yAxis);
 
 	title = gTitle.attr("class", "Title")
-	.append("text")
-	.attr("class", "axis")
-	.attr("x", 24)
-    .attr("y", 12)
-	.style("text-anchor", "start")
-	.text(graphDescription);
+		.append("text")
+		.attr("class", "axis")
+		.attr("x", 24)
+		.attr("y", 12)
+		.style("text-anchor", "start")
+		.text(graphDescription);
 
 	barsProfit.data(cropList)
 		.transition()
-			.attr("x", function(d, i) {
-				if (d.drawProfit < 0 && options.buySeed)
-					return x(i) + barOffsetX + (barWidth / miniBar);
-				else
-					return x(i) + barOffsetX;
-			})
-			.attr("y", function(d) {
-				if (d.drawProfit >= 0)
-					return y(d.drawProfit) + barOffsetY;
-				else
-					return height + barOffsetY;
-			})
-			.attr("height", function(d) {
-				if (d.drawProfit >= 0)
-					return height - y(d.drawProfit);
-				else
-					return height - y(-d.drawProfit);
-			})
-			.attr("width", function(d) {
-				if (d.drawProfit < 0 && options.buySeed)
-					return barWidth - (barWidth / miniBar);
-				else
-					return barWidth;
-			})
- 			.attr("fill", function (d) {
- 				if (d.drawProfit >= 0)
- 					return "#37BD2F";
- 				else
- 					return "#EE513E";
- 			});
+		.attr("x", function (d, i) {
+			if (d.drawProfit < 0 && options.buySeed)
+				return x(i) + barOffsetX + (barWidth / miniBar);
+			else
+				return x(i) + barOffsetX;
+		})
+		.attr("y", function (d) {
+			if (d.drawProfit >= 0)
+				return y(d.drawProfit) + barOffsetY;
+			else
+				return height + barOffsetY;
+		})
+		.attr("height", function (d) {
+			if (d.drawProfit >= 0)
+				return height - y(d.drawProfit);
+			else
+				return height - y(-d.drawProfit);
+		})
+		.attr("width", function (d) {
+			if (d.drawProfit < 0 && options.buySeed)
+				return barWidth - (barWidth / miniBar);
+			else
+				return barWidth;
+		})
+		.attr("fill", function (d) {
+			if (d.drawProfit >= 0)
+				return "#37BD2F";
+			else
+				return "#EE513E";
+		});
 
 	barsSeed.data(cropList)
 		.transition()
-			.attr("x", function(d, i) { return x(i) + barOffsetX; })
-			.attr("y", height + barOffsetY)
-			.attr("height", function(d) {
-				if (options.buySeed)
-					return height - y(-d.drawSeedLoss);
-				else
-					return 0;
-			})
-			.attr("width", barWidth / miniBar)
- 			.attr("fill", "#FF9A56");
+		.attr("x", function (d, i) { return x(i) + barOffsetX; })
+		.attr("y", height + barOffsetY)
+		.attr("height", function (d) {
+			if (options.buySeed)
+				return height - y(-d.drawSeedLoss);
+			else
+				return 0;
+		})
+		.attr("width", barWidth / miniBar)
+		.attr("fill", "#FF9A56");
 
- 	imgIcons.data(cropList)
+	imgIcons.data(cropList)
 		.transition()
-			.attr("x", function(d, i) { return x(i) + barOffsetX; })
-			.attr("y", function(d) {
-				if (d.drawProfit >= 0)
-					return y(d.drawProfit) + barOffsetY - barWidth - barPadding;
-				else
-					return height + barOffsetY - barWidth - barPadding;
-			})
-		    .attr('width', barWidth)
-		    .attr('height', barWidth)
-		    .attr("xlink:href", function(d) { return "img/" + d.img; });
+		.attr("x", function (d, i) { return x(i) + barOffsetX; })
+		.attr("y", function (d) {
+			if (d.drawProfit >= 0)
+				return y(d.drawProfit) + barOffsetY - barWidth - barPadding;
+			else
+				return height + barOffsetY - barWidth - barPadding;
+		})
+		.attr('width', barWidth)
+		.attr('height', barWidth)
+		.attr("xlink:href", function (d) { return "img/" + d.img; });
 
 	barsTooltips.data(cropList)
 		.transition()
-			.attr("x", function(d, i) { return x(i) + barOffsetX - barPadding/2; })
-			.attr("y", function(d) {
-				if (d.drawProfit >= 0)
-					return y(d.drawProfit) + barOffsetY - barWidth - barPadding;
-				else
-					return height + barOffsetY - barWidth - barPadding;
-			})
-			.attr("height", function(d) {
-				var topHeight = 0;
+		.attr("x", function (d, i) { return x(i) + barOffsetX - barPadding / 2; })
+		.attr("y", function (d) {
+			if (d.drawProfit >= 0)
+				return y(d.drawProfit) + barOffsetY - barWidth - barPadding;
+			else
+				return height + barOffsetY - barWidth - barPadding;
+		})
+		.attr("height", function (d) {
+			var topHeight = 0;
 
-				if (d.drawProfit >= 0)
-					topHeight = height + barWidth + barPadding - y(d.drawProfit);
-				else
-					topHeight = barWidth + barPadding;
+			if (d.drawProfit >= 0)
+				topHeight = height + barWidth + barPadding - y(d.drawProfit);
+			else
+				topHeight = barWidth + barPadding;
 
-				var lossArray = [0];
+			var lossArray = [0];
 
-				if (options.buySeed)
-					lossArray.push(d.drawSeedLoss);
-				if (d.drawProfit < 0)
-					lossArray.push(d.drawProfit);
+			if (options.buySeed)
+				lossArray.push(d.drawSeedLoss);
+			if (d.drawProfit < 0)
+				lossArray.push(d.drawProfit);
 
-				var swapped;
-			    do {
-			        swapped = false;
-			        for (var i = 0; i < lossArray.length - 1; i++) {
-			            if (lossArray[i] > lossArray[i + 1]) {
-			                var temp = lossArray[i];
-			                lossArray[i] = lossArray[i + 1];
-			                lossArray[i + 1] = temp;
-			                swapped = true;
-			            }
-			        }
-			    } while (swapped);
+			var swapped;
+			do {
+				swapped = false;
+				for (var i = 0; i < lossArray.length - 1; i++) {
+					if (lossArray[i] > lossArray[i + 1]) {
+						var temp = lossArray[i];
+						lossArray[i] = lossArray[i + 1];
+						lossArray[i + 1] = temp;
+						swapped = true;
+					}
+				}
+			} while (swapped);
 
-			    return topHeight + (height - y(-lossArray[0]));
-			})
-			.attr("width", barWidth + barPadding);
+			return topHeight + (height - y(-lossArray[0]));
+		})
+		.attr("width", barWidth + barPadding);
 }
 
 /*
@@ -828,7 +828,7 @@ function updateGraph() {
  */
 function updateData() {
 
-  options.season = parseInt(document.getElementById('select_season').value);
+	options.season = parseInt(document.getElementById('select_season').value);
 
 	if (document.getElementById('max_seed_money').value < 0)
 		document.getElementById('max_seed_money').value = '0';
@@ -844,18 +844,18 @@ function updateData() {
 	document.getElementById('current_day').style.cursor = "text";
 
 	if (document.getElementById('current_day').value <= 0)
-			document.getElementById('current_day').value = 1;
+		document.getElementById('current_day').value = 1;
 	if (options.crossSeason) {
-			document.getElementById('number_days').value = 56;
-			if (document.getElementById('current_day').value > 56)
-					document.getElementById('current_day').value = 56;
-			options.days = 57 - document.getElementById('current_day').value;
+		document.getElementById('number_days').value = 56;
+		if (document.getElementById('current_day').value > 56)
+			document.getElementById('current_day').value = 56;
+		options.days = 57 - document.getElementById('current_day').value;
 	}
 	else {
-			document.getElementById('number_days').value = 28;
-			if (document.getElementById('current_day').value > 28)
-						document.getElementById('current_day').value = 28;
-			options.days = 29 - document.getElementById('current_day').value;
+		document.getElementById('number_days').value = 28;
+		if (document.getElementById('current_day').value > 28)
+			document.getElementById('current_day').value = 28;
+		options.days = 29 - document.getElementById('current_day').value;
 	}
 
 	//options.seeds.generalStore = document.getElementById('check_seedsGeneralStore').checked;
@@ -864,9 +864,9 @@ function updateData() {
 	options.buySeed = document.getElementById('check_buySeed').checked;
 
 	if (document.getElementById('number_planted').value <= 0)
-			document.getElementById('number_planted').value = 1;
+		document.getElementById('number_planted').value = 1;
 	if (options.replant && parseInt(document.getElementById('number_planted').value) % 2 == 1)
-			document.getElementById('number_planted').value = parseInt(document.getElementById('number_planted').value) + 1;
+		document.getElementById('number_planted').value = parseInt(document.getElementById('number_planted').value) + 1;
 
 	options.planted = document.getElementById('number_planted').value;
 
@@ -924,12 +924,12 @@ function optionsLoad() {
 	options.maxSeedMoney = validIntRange(0, MAX_INT, options.maxSeedMoney);
 	document.getElementById('max_seed_money').value = options.maxSeedMoney;
 
-	options.average = validIntRange(0,3,options.average);
+	options.average = validIntRange(0, 3, options.average);
 	document.getElementById('select_profit_display').checked = options.average;
 
 	//options.seeds.generalStore = validBoolean(options.seeds.generalStore);
 	//document.getElementById('check_seedsGeneralStore').checked = options.seeds.generalStore;
-	
+
 	//options.seeds.special = validBoolean(options.seeds.special);
 	//document.getElementById('check_seedsSpecial').checked = options.seeds.special;
 
@@ -945,15 +945,15 @@ function optionsLoad() {
 }
 
 function deserialize(str) {
-    var json = `(${str})`
-        .replace(/_/g, ' ')
-        .replace(/-/g, ',')
-        .replace(/\(/g, '{')
-        .replace(/\)/g, '}')
-        .replace(/([a-z]+)/gi, '"$1":')
-        .replace(/"(true|false)":/gi, '$1');
+	var json = `(${str})`
+		.replace(/_/g, ' ')
+		.replace(/-/g, ',')
+		.replace(/\(/g, '{')
+		.replace(/\)/g, '}')
+		.replace(/([a-z]+)/gi, '"$1":')
+		.replace(/"(true|false)":/gi, '$1');
 
-    //console.log(json);
+	//console.log(json);
 
 	return JSON.parse(json);
 }
